@@ -9,7 +9,10 @@ public class AwsCdkApp {
         final VpcStack vpc = new VpcStack(app, "Vpc");
 
         final ClusterStack cluster = new ClusterStack(app, "Cluster", vpc.getVpc());
-        cluster.addDependency(vpc);
+        cluster.addDependency(vpc); // Força ao CDk criar a VPC antes do cluster
+
+        final ServiceOneStack serviceOne = new ServiceOneStack(app, "ServiceOne", cluster.getCluster());
+        serviceOne.addDependency(cluster);
 
         app.synth();
     }
