@@ -38,7 +38,7 @@ public class ServiceOneStack extends Stack {
                 .taskImageOptions(
                         ApplicationLoadBalancedTaskImageOptions.builder()
                                 .containerName("aws_project_one")
-                                .image(ContainerImage.fromRegistry("viniciusferrarini/aws_project_one:1.3.0"))
+                                .image(ContainerImage.fromRegistry("viniciusferrarini/aws_project_one:1.3.1"))
                                 .containerPort(8080)
                                 .logDriver(LogDriver.awsLogs(AwsLogDriverProps.builder()
                                                 .logGroup(LogGroup.Builder.create(this, "ServiceOneLogGroup")
